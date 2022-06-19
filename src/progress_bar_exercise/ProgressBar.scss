@@ -1,0 +1,70 @@
+.container {
+  display: grid;
+  gap: 1rem;
+}
+
+.btn {
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  &:hover {
+    border-width: 2px;
+  }
+
+  &:active {
+    border-width: 3px;
+  }
+}
+
+.btn-primary {
+  color: $green;
+  border: 1px solid $green;
+}
+
+.btn-danger {
+  color: $red;
+  border: 1px solid $red;
+}
+
+.progress-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.progress-bar {
+  height: 6px;
+  width: 100%;
+  border-radius: 6px;
+  
+  .progress {
+    width: 0px;
+    height: 100%;
+    background-image: linear-gradient(to right, $primary-orange, $primary-red);
+    border-radius: inherit;
+  
+    &.loading {
+      width: 90%;
+      transition: width 15s ease-in-out;
+    }
+  
+    &.complete {
+      width: 100%;
+      transition: width 1s ease-in-out;
+      animation: 3s fade-out;
+    }
+  }
+}
+
+@keyframes fade-out {
+  75%{
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
