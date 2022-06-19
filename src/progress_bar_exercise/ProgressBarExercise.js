@@ -21,10 +21,28 @@ export default ProgressBarExercise;
 
 const Solution = () => {
   const [state, setProgressState] = useState(PROGRESS_BAR_STATES.EMPTY);
+  const [stateWithBreakPoints, setProgressStateWithBreakPoints] = useState(PROGRESS_BAR_STATES.EMPTY);
   return (
-    <section className="container">
-      <ProgressBar state={state} setProgressState={setProgressState} />
-      <ProgressControls state={state} setProgressState={setProgressState} />
-    </section>
+    <article className="container">
+      <h2>Solution v2</h2>
+
+      <section className="container">
+        <h3>ProgressBar without breakpoints</h3>
+        <ProgressBar state={state} setProgressState={setProgressState} />
+        <ProgressControls state={state} setProgressState={setProgressState} />
+      </section>
+
+      <section className="container">
+        <h3>ProgressBar with breakpoints</h3>
+        <ProgressBar
+          breakPoints={[20, 95]}
+          state={stateWithBreakPoints}
+          setProgressState={setProgressStateWithBreakPoints}
+        />
+        <ProgressControls
+          state={stateWithBreakPoints}
+          setProgressState={setProgressStateWithBreakPoints} />
+      </section>
+    </article>
   );
 };
