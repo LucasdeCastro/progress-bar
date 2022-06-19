@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Exercise from "../exercise/Exercise";
+import ProgressBar, { PROGRESS_BAR_STATES } from "./ProgressBar";
+import ProgressControls from "./ProgressControls"
 
 const ProgressBarExercise = () => {
   return (
@@ -18,5 +20,11 @@ export default ProgressBarExercise;
 // ----------------------------------------------------------------------------------
 
 const Solution = () => {
-  return <div>Add solution here</div>;
+  const [state, setProgressState] = useState(PROGRESS_BAR_STATES.EMPTY);
+  return (
+    <section className="container">
+      <ProgressBar state={state} setProgressState={setProgressState} />
+      <ProgressControls state={state} setProgressState={setProgressState} />
+    </section>
+  );
 };
